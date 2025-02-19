@@ -13,7 +13,7 @@ public class Factura
     private String nomC;
     private static int num = 0;
     private int folio;
-    private Vector articulos;
+    private Vector<Articulo> articulos;
     
 
         /**
@@ -25,7 +25,7 @@ public class Factura
             this.empresa = new String("Papelerias Sony");
             this.nomC = new String(nomC);
             this.folio = ++num;
-            this.articulos = new Vector();
+            this.articulos = new Vector<Articulo>();
         }
 
       public int getNumArticulos() {
@@ -36,7 +36,7 @@ public class Factura
           articulos.add(art);
       }
       
-      public Object getArticulo(int index) {
+      public Articulo getArticulo(int index) {
           return articulos.get(index);
       }
       
@@ -48,7 +48,7 @@ public class Factura
         Articulo recorre;
         double suma = 0.0;
         for(int i = 0; i < articulos.size(); i++ ) {
-            recorre = (Articulo) getArticulo(i);
+            recorre = getArticulo(i);
             suma += recorre.importe();
         }
         return suma;
